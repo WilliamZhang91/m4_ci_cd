@@ -1,0 +1,21 @@
+dist: xenial
+language: python
+node_js:
+  - "10"
+# command to install dependencies
+
+addons:
+  sonarcloud:
+    organization: "jacques15" # the key of the org you chose at step #3
+    
+install:
+  - pip install -U pytest
+  - pip install -U flask
+  - pip install -U azure-cognitiveservices-search-customsearch
+  - nvm install 10
+# command to run tests
+script:
+  - sonar-scanner
+  - pytest
+  - python3 Website_python.py
+  
